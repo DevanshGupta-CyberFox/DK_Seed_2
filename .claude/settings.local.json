@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:devanshgupta-cyberfox.github.io)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

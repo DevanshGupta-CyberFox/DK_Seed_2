@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-leaf-50: #f2f9ee;
+  --color-leaf-100: #e0f1d6;
+  --color-leaf-200: #c2e3af;
+  --color-leaf-300: #9dd180;
+  --color-leaf-400: #78bb56;
+  --color-leaf-500: #58a134;
+  --color-leaf-600: #427f27;
+  --color-leaf-700: #366521;
+  --color-leaf-800: #2e501f;
+  --color-leaf-900: #27431d;
+  --color-earth-50: #fbf7f1;
+  --color-earth-100: #f3e9da;
+  --color-earth-200: #e6d3b8;
+  --color-earth-500: #a97a4b;
+  --color-earth-600: #8c6139;
+  --color-earth-700: #6e4f2f;
+  --color-earth-900: #3c2a18;
+  --color-gold-300: #f1d48a;
+  --color-gold-400: #e6bd5c;
+  --color-gold-500: #d4a437;
+  --font-display: 'Playfair Display', 'Segoe UI', serif;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #fff;
+}
+
+::selection {
+  background-color: var(--color-leaf-300);
+  color: var(--color-leaf-900);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-leaf-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-leaf-400);
+  border-radius: 999px;
+  border: 2px solid var(--color-leaf-50);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-leaf-500);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-18px) translateX(10px);
+  }
+}
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(4deg);
+  }
+}
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes bounce-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(88, 161, 52, 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(88, 161, 52, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-float {
+  animation: float 7s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+.animate-blob {
+  animation: blob 12s ease-in-out infinite;
+}
+.animate-bounce-y {
+  animation: bounce-y 2s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #fff 0%, var(--color-gold-300) 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3.5s linear infinite;
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.card-premium {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(39, 67, 29, 0.04), 0 10px 30px -12px rgba(39, 67, 29, 0.15);
+}
+
+.transition-smooth {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
